@@ -1,0 +1,11 @@
+.app__header{
+    grid-area: header;
+    background-color:#17202A;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.app__header img{
+  height: 100%;
+  margin-left: 20px;
+}
+

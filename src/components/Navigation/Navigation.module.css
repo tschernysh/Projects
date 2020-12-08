@@ -1,0 +1,27 @@
+.app__nav{
+  grid-area: nav;
+  background-color:#17202A;
+}
+
+.nav__btns{
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  margin: 10px 10px;
+  border-left: 2px solid #fff;
+  border-right: 2px solid transparent;
+  transition: all 0.5s;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+.nav__btns:hover{
+  border-left: 2px solid #d63031;
+  border-right: 2px solid #55efc4;
+  /* text-decoration: underline; */
+  cursor: pointer;
+}
+.activeBtn{
+  border-right: 2px solid #ffffff;
+  border-left: 2px solid transparent;
+}

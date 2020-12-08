@@ -1,0 +1,77 @@
+.profile__posts p {
+    font-size: 80px;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    text-shadow: -45px 30px 15px rgb(207, 14, 14),
+    -30px 20px 15px rgb(207, 123, 14),
+    -15px 10px 15px rgb(204, 207, 14),
+    0px  0px 15px rgb(75, 207, 14),
+    15px -10px 15px rgb(14, 201, 207),
+    30px -20px 15px rgb(14, 66, 207),
+    45px -30px 15px rgb(191, 14, 207);
+  }
+  
+  .profile__posts{
+      width: 90%;
+      margin: 0 auto;
+    }
+    .profile__post textarea{
+      width: 100%;
+      height: 150px;
+      resize: none;
+      font-size: 30px;
+      padding: 10px;
+      border: 2px solid #1B2631;
+      border-radius: 10px;
+      outline: none;
+      background-color: #BDC3C7;
+    }
+    .profile__post textarea:focus{
+      animation: borderGlow 30s infinite;
+    }
+    @keyframes borderGlow{
+      0%{
+        border: 2px solid #1B2631;
+        box-shadow: 0 0 0px 0 #1B2631;
+      }
+      25%{
+        border: 2px solid #d63031;
+        box-shadow: 0 0 15px 0 #d63031;
+      }
+      50%{
+        border: 2px solid #1B2631;
+        box-shadow: 0 0 15px 0 #1B2631;
+      }
+      75%{
+        border: 2px solid #00b894;
+        box-shadow: 0 0 15px 0 #00b894;
+      }
+      100%{
+        border: 2px solid #1B2631;
+        box-shadow: 0 0 0px 0 #1B2631;
+      }
+    }
+    .profile__post button{
+      font-size: 20px;
+      border: 2px solid #1B2631;
+      border-radius: 10px;
+      padding: 5px 10px;
+      outline: none;
+      font-weight: 500;
+      margin-top: 10px;
+      background-color: #BDC3C7;
+      transition: all 0.5s;
+    }
+    .profile__post button:hover{
+      color: #BDC3C7;
+      border: 2px solid #BDC3C7;
+      background-color: #1B2631;
+    }
+
+.posts__container{
+    margin-top: 50px;
+  }
+.post__block{
+    margin-top: 50px;
+}

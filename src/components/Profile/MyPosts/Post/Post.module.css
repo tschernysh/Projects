@@ -1,0 +1,30 @@
+.post__box{
+  box-shadow: 0 0 10px #1B2631;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 50px;
+}
+.post__side{
+  margin-left: 20px;
+}
+.post__owner{
+  font-size: 30px;
+  font-weight: 500;
+}
+.post__time{
+  font-size: 15px;
+  font-weight: 200;
+}
+.post__top{
+  display: flex;
+  margin-bottom: 15px;
+}
+.post__text{
+  font-size: 18px;
+  margin-bottom: 15px;  
+}
+.post__box img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}

@@ -1,0 +1,10 @@
+.dialogs{
+    display: grid;
+
+    grid-template-columns: 3fr 9fr;
+    margin: 0 auto;
+}
+.dialog__users{
+    display: flex;
+    flex-direction: column;
+}

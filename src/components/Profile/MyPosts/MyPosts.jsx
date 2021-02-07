@@ -1,20 +1,38 @@
 import Post from "./Post/Post"
 import s from './MyPosts.module.css'
+import React from 'react'
+
+const MyPosts = (props) => {
+   
+    let postElements = props.posts.map(p => <Post message={p.message} id={p.id} like={p.like} />)
+
+    
+    function addPost(){
+        props.addPost()
+        debugger
+
+    }
+
+    let onPostChange = (e) => {
+        let text = e.target.value;
+        props.updateNewPostText(text)
+    }
 
 
-const MyPosts = () => {
     return (
         <div className={s.posts__container}>
             <div className={s.profile__posts}>
                 <p>Feed</p>
                 <div className={s.profile__post}>
-                    <textarea name="" id="" cols="30" rows="10" placeholder='Share something ^_^'></textarea>
+                    <textarea onChange={ onPostChange } 
+                              value={props.newPostText} placeholder='Share something ^_^'></textarea>
                     <br />
-                    <button>Share</button>
+                    <button onClick={ addPost } >Share</button>
                 </div>
                 <div className={s.post__block}>
-                    <Post message='played doto today' like='54' />
-                    <Post message='versuta sobaka' like='52' />
+                    
+                    {postElements}
+                    
                 </div>
             </div>
         </div>

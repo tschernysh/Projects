@@ -1,5 +1,6 @@
 *{
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .app__wrapper{
   display: grid;
@@ -8,7 +9,7 @@
   margin: 10px auto 0;
 
   grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 1fr 11fr;
   grid-gap: 10px;
 
   grid-template-areas: 
@@ -16,17 +17,6 @@
   'nav content';
 }
 
-@keyframes backWave{
-  0%{
-    background: rgb(61, 126, 187);
-  }
-  50%{
-    background: black;
-  }
-  100%{
-    background: rgb(61, 126, 187);
-  }
-}
 .app__content{
   grid-area: content;
   background-color: #BDC3C7; 

@@ -3,4 +3,17 @@
 }
 .dialog__user{
     font-size: 20px;
+    padding: 10px;
+    display: flex;
+}
+.dialog__user:hover{
+    cursor: pointer;
+}
+.dialog__user div{
+    margin: 10px 0 0 20px;
+}
+.user__photo{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }

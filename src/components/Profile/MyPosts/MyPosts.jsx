@@ -9,8 +9,6 @@ const MyPosts = (props) => {
     
     function addPost(){
         props.addPost()
-        debugger
-
     }
 
     let onPostChange = (e) => {

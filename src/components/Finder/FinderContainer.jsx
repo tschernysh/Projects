@@ -1,7 +1,7 @@
 import React from 'react';
 import Finder from './Finder';
 import { connect } from 'react-redux';
-import { toggleSubscribeCreator } from '../../state/finderReducer';
+import { toggleSubscribeCreator, addUsersCreator } from '../../state/finderReducer';
 
 let mapStateToProps = (state) => {
     return{
@@ -12,7 +12,10 @@ let mapDispatchToProps = (dispatch) => {
     return {
         subscribeOnUser: (userId, userSubscription) => {
             dispatch(toggleSubscribeCreator(userId, userSubscription))
-        }    
+        },  
+        addUsers: (users) => {
+            dispatch(addUsersCreator(users))
+        }
     }
 }
 

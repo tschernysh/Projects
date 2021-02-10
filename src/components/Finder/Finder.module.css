@@ -1,0 +1,6 @@
+.users__block{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin: 30px;
+}

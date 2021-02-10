@@ -1,21 +1,29 @@
 const TOGGLE_SUBSCRIBE = 'TOGGLE-SUBSCRIBE';
+const ADD_USERS = 'ADD-USERS'
 
 let initial = {
-    users: [
-        {userName: 'Gaponchyk Ivan', city: 'Vinnytsia' , age: '20', id: '0', isSubscribed: false},
-        {userName: 'Artem Khaba', city: 'London' , age: '19', id: '1', isSubscribed: false},
-        {userName: 'Vitaliy Gromjako', city: 'London' , age: '24', id: '2', isSubscribed: false},
-    ]
+    users: [    ]
 }
 
 const finderReducer = (state = initial, action) => {
-    let stateCopy = {...state}
 
     switch(action.type){
         case TOGGLE_SUBSCRIBE:
-            stateCopy.users = [...state.users]
-            stateCopy.users[action.id].isSubscribed = action.subscribed ? false : true
-            return stateCopy
+            return {
+                ...state,
+                users: state.users.map( u => {
+                    if(u.id === action.id){
+                        action.subscribed = u.followed ? false : true;
+                        return {...u, followed: action.subscribed}
+                    }
+                    return u;
+                })
+            }
+        case ADD_USERS:
+            return{
+                ...state,
+                users: action.addedUsers
+            }
         default:
             return state
     }
@@ -26,7 +34,10 @@ export const toggleSubscribeCreator = (userId, userSubscription) => ({
     id: userId ,
     subscribed: userSubscription
 });
-
+export const addUsersCreator = (users) => ({
+    type: ADD_USERS,
+    addedUsers: users
+})
 
 
 export default finderReducer;

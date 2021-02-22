@@ -1,25 +1,25 @@
 import React from 'react';
 import Finder from './Finder';
 import { connect } from 'react-redux';
-import { toggleSubscribeCreator, addUsersCreator } from '../../state/finderReducer';
+import { toggleSubscribe, addUsers, changePage, updateUsersCount, toggleFetching } from '../../state/finderReducer';
 
 let mapStateToProps = (state) => {
     return{
-        users: state.finderPage.users
-    }
-}
-let mapDispatchToProps = (dispatch) => {
-    return {
-        subscribeOnUser: (userId, userSubscription) => {
-            dispatch(toggleSubscribeCreator(userId, userSubscription))
-        },  
-        addUsers: (users) => {
-            dispatch(addUsersCreator(users))
-        }
+        users: state.finderPage.users,
+        currentPage: state.finderPage.currentPage,
+        pageSize: state.finderPage.pageSize,
+        usersCount: state.finderPage.usersCount,
+        isFetching: state.finderPage.isFetching
     }
 }
 
-let FinderContainer = connect(mapStateToProps, mapDispatchToProps)(Finder);
+let FinderContainer = connect(mapStateToProps, {
+        toggleSubscribe,
+        addUsers,
+        changePage,
+        updateUsersCount,
+        toggleFetching,
+    })(Finder);
 
 
 export default FinderContainer;

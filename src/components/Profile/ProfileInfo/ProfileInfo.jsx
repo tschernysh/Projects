@@ -18,7 +18,7 @@ const ProfileInfo = (props) => {
                             Name
               </div>
                         <div className={s.profile__text}>
-                            Roman tschernysh
+                            {props.profile == null ? 'strange stranger' : props.profile.fullName}
               </div>
                     </div>
 

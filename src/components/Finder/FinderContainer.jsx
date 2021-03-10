@@ -1,7 +1,7 @@
 import React from 'react';
 import Finder from './Finder';
 import { connect } from 'react-redux';
-import { toggleSubscribe, addUsers, changePage, updateUsersCount, toggleFetching } from '../../state/finderReducer';
+import { toggleSubscribe, updateUsersCount, toggleSubscriptionFetch, getFinderUsers, userFinderSubscribe, userFinderUnsubscribe} from '../../state/finderReducer';
 
 let mapStateToProps = (state) => {
     return{
@@ -9,16 +9,18 @@ let mapStateToProps = (state) => {
         currentPage: state.finderPage.currentPage,
         pageSize: state.finderPage.pageSize,
         usersCount: state.finderPage.usersCount,
-        isFetching: state.finderPage.isFetching
+        isFetching: state.finderPage.isFetching,
+        subscriptionFetch: state.finderPage.subscriptionFetch
     }
 }
 
 let FinderContainer = connect(mapStateToProps, {
         toggleSubscribe,
-        addUsers,
-        changePage,
         updateUsersCount,
-        toggleFetching,
+        toggleSubscriptionFetch,
+        getFinderUsers,
+        userFinderSubscribe,
+        userFinderUnsubscribe
     })(Finder);
 
 

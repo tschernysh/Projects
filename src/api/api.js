@@ -4,8 +4,8 @@ import * as axios from 'axios'
 const instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
-    heders: {
-        'API-KEY' : 'ef4b1d77-f98c-4ca3-ac12-4d8bcae87ca0' 
+    headers: {
+        'API-KEY' : '465375b2-bdba-492a-a3c1-8f388701a7f8' 
     }
 })
 
@@ -38,6 +38,15 @@ export const usersAPI = {
         return(
             instance
                 .post(`follow/${id}`)
+        )
+    }
+}
+
+export const authAPI = {
+    me(){
+        return(
+            instance
+                .get(`auth/me`)
         )
     }
 }

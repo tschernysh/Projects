@@ -38,7 +38,6 @@
     outline: none;
     width: 150px;
     border: none ;
-    box-shadow: 0 0 10px #9b59b6;
 }
 .user__info_bot{
     display: flex;
@@ -49,11 +48,14 @@
     transition: all 0.5s;
     color: rgb(0, 0, 0);
     cursor: pointer;
-    box-shadow: none !important;
 }
 .user__unsubscribed{
     background-color: #9b59b6;
     transition: all 0.5s;
     color: #fff;
     cursor: pointer;   
+}
+button:disabled{
+    background-color: rgb(0, 0, 0, .8);
+    font-size: 0;
 }

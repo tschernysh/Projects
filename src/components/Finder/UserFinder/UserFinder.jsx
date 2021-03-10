@@ -2,7 +2,6 @@ import React from 'react'
 import s from './UserFinder.module.css'
 import defaultPhoto from '../../../assets/images/defaultProfileImage.png'
 import { NavLink } from 'react-router-dom'
-import { usersAPI } from '../../../api/api'
 
 const UserFinder = (props) => {
 
@@ -28,22 +27,15 @@ const UserFinder = (props) => {
             </div>
 
             {props.followed ?
-                <button className={s.user__subscribed} onClick={() => {
-                    usersAPI.userUnfollow(props.id)
-                        .then(Response => {
-                            if (Response.data.resultCode === 0) {
-                                props.toggleSubscribe(props.id, props.isSubscribed)
-                            }
-                        })
+                <button disabled={props.subscriptionFetch.some(id => id === props.id)} 
+                        className={s.user__subscribed} 
+                        onClick={() => {
+                            props.userFinderUnsubscribe(props.id)
                 }}>unfollow</button> :
-                <button className={s.user__unsubscribed} onClick={() => {
-                    usersAPI.userFollow(props.id)
-                        .then(Response => {
-                            if (Response.data.resultCode === 0) {
-
-                                props.toggleSubscribe(props.id, props.isSubscribed)
-                            }
-                        })
+                <button disabled={props.subscriptionFetch.some(id => id === props.id)} 
+                        className={s.user__unsubscribed} 
+                        onClick={() => {
+                            props.userFinderSubscribe(props.id)
                 }}>follow</button>}
 
         </div>

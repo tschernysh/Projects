@@ -1,31 +1,35 @@
 import React from 'react'
 import s from './Finder.module.css'
 import UserFinder from './UserFinder/UserFinder'
-import * as axios from 'axios'
 import Preloader from '../Common/Preloader/Preloader';
-import { usersAPI } from '../../api/api';
 
 class Finder extends React.Component {
 
     componentDidMount() {
-        this.props.toggleFetching(true)
-            usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-            .then(data => { 
-                this.props.addUsers(data.items);
-                // this.props.updateUsersCount(Response.data.totalCount)
-                this.props.toggleFetching(false);
 
-    } );
+        this.props.getFinderUsers(this.props.currentPage, this.props.pageSize)
+
+        // this.props.toggleFetching(true)
+        //     usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
+        //     .then(data => { 
+        //         this.props.addUsers(data.items);
+        //         // this.props.updateUsersCount(Response.data.totalCount)
+        //         this.props.toggleFetching(false);
+        //     } 
+        // );
     }
     
     changeCurrentPage = (pageNumber) => {
-        this.props.toggleFetching(true)
-        this.props.changePage(pageNumber)
-            usersAPI.getUsers(pageNumber, this.props.pageSize)
-            .then(data => {
-                this.props.addUsers(data.items)
-                this.props.toggleFetching(false)
-            });
+
+        this.props.getFinderUsers(pageNumber, this.props.pageSize)
+
+        // this.props.toggleFetching(true)
+        // this.props.changePage(pageNumber)
+        //     usersAPI.getUsers(pageNumber, this.props.pageSize)
+        //     .then(data => {
+        //         this.props.addUsers(data.items)
+        //         this.props.toggleFetching(false)
+        //     });
     }
 
     render() {
@@ -45,17 +49,18 @@ class Finder extends React.Component {
                     {pages.map(p => <span onClick={ () => {this.changeCurrentPage(p)}} className={this.props.currentPage == p && s.active__page }>{p}</span>)}
                 </div>
 
-                {this.props.isFetching ? 
-                <Preloader /> :
-                <div className={s.users__block}>
-
+                {this.props.isFetching 
+                ? <Preloader /> 
+                : <div className={s.users__block}>
                     {this.props.users.map(u => <UserFinder userName={u.name}
                         followed={u.followed}
-                        toggleSubscribe={this.props.toggleSubscribe}
                         id={u.id}
                         photos={u.photos}
                         city={u.city}
-                        age={u.age} />)}
+                        age={u.age}
+                        subscriptionFetch={this.props.subscriptionFetch}
+                        userFinderSubscribe={this.props.userFinderSubscribe}
+                        userFinderUnsubscribe={this.props.userFinderUnsubscribe} />)}
                 </div>
                 }
 

@@ -1,3 +1,5 @@
+import { authAPI } from "../api/api"
+
 const SET_USER_LOG = 'SET-USER-LOG'
 
 let initial = {
@@ -26,5 +28,16 @@ export const setUserLog = (id, email, login) => ({
     data: {id, email, login}
 })
 
+export const authUser = () => {
+    return (dispatch) => {
+        authAPI.me()
+            .then(Response => {
+                if(Response.data.resultCode === 0) {
+                   let {id, login, email} = Response.data.data;
+                   dispatch(setUserLog(id, login, email))
+                }
+            })
+    }
+}
 
 export default headerReducer

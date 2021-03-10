@@ -1,3 +1,5 @@
+import {usersAPI} from '../api/api'
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const UPDATE_USER_PROFILE = 'UPDATE-USER-PROFILE'
@@ -60,4 +62,17 @@ export const toggleFetching = (isFetching) => ({
     type: TOGGLE_FETCHING,
     isFetching
 });
+export const getUserProfile = (userId) => {
+    return (dispatch) => {
+        dispatch(toggleFetching(true));
+        let urlUserId = !userId ? '15090' : userId;
+        usersAPI.getUserProfile(urlUserId)
+        .then(data => { 
+            dispatch(updateUserProfile(data));
+            dispatch(toggleFetching(false));
+        });
+    }
+}
+
+
 export default profileReducer;
